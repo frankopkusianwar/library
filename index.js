@@ -36,7 +36,26 @@ openFormButton.addEventListener('click', function toggle() {
 });
 
 
+function checked(check) {
+  return check ? 'Completed' : 'Yet To Read';
+}
 
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+  
+  myLibrary.push(
+    {
+      title: e.target.title.value,
+      author: e.target.author.value,
+      pages: e.target.pages.value,
+      read: checked(e.target.readStatus.checked),
+    }
+  )
+  
+  render();
+  e.target.title.value = '';
+  e.target.author.value = '';
+});
   
   
   
