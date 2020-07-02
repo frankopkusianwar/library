@@ -1,6 +1,7 @@
 const table = document.querySelector('tbody');
 const openFormButton = document.querySelector('#open');
 const form = document.querySelector('#form');
+const deleteBookButton = document.querySelector('td button')
 
 let myLibrary = [];
 
@@ -13,20 +14,26 @@ function render() {
     const rowTitle = document.createElement('td');
     const rowAuthor = document.createElement('td');
     const rowPages = document.createElement('td');
-    const RowRead = document.createElement('td');
+    const rowRead = document.createElement('td');
+    const rowDelete = document.createElement('td');
+    const rowButton = document.createElement('button')
 
     rowIndex.textContent = (index + 1);
     rowTitle.textContent = book.title;
     rowAuthor.textContent = book.author;
     rowPages.textContent = book.pages;
-    RowRead.textContent = book.read;
+    rowRead.textContent = book.read;
+    rowButton.textContent = 'Delete'
+
 
     var newRow = table.appendChild(tableRow);
     newRow.append(rowIndex);
     newRow.append(rowTitle);
     newRow.append(rowAuthor);
     newRow.append(rowPages);
-    newRow.append(RowRead);
+    newRow.append(rowRead);
+    rowDelete.append(rowButton);
+    newRow.append(rowDelete);
   }
 
 }
