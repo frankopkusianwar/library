@@ -1,41 +1,13 @@
 const table = document.querySelector('tbody');
 const openFormButton = document.querySelector('#open');
-const submitbutton = document.querySelector('#submitBook');
+const form = document.querySelector('#form');
 
-let myLibrary = [
-  {
-    title: 'Harry potter',
-    author: 'J.k. Rolings',
-    pages: 300,
-    read: 'Completed',
-  },
-  {
-    title: 'Harry potter',
-    author: 'J.k. Rolings',
-    pages: 300,
-    read: 'Completed',
-  },
-  {
-    title: 'Harry potter',
-    author: 'J.k. Rolings',
-    pages: 300,
-    read: 'Completed',
-  }, {
-    title: 'Harry potter',
-    author: 'J.k. Rolings',
-    pages: 300,
-    read: 'Completed',
-  }
-];
-
-function addBook() {
-  title = document.getElementById('title').value
-  console.log(title)
-}
+let myLibrary = [];
 
 function render() {
-
-  myLibrary.forEach((book, index) => {
+  if (myLibrary.length) {
+    book = myLibrary[myLibrary.length -1];
+    index = myLibrary.length;
     const tableRow = document.createElement('tr');
     const rowIndex = document.createElement('th');
     const rowTitle = document.createElement('td');
@@ -43,7 +15,7 @@ function render() {
     const rowPages = document.createElement('td');
     const RowRead = document.createElement('td');
 
-    rowIndex.textContent = (index + 2);
+    rowIndex.textContent = (index + 1);
     rowTitle.textContent = book.title;
     rowAuthor.textContent = book.author;
     rowPages.textContent = book.pages;
@@ -55,15 +27,16 @@ function render() {
     newRow.append(rowAuthor);
     newRow.append(rowPages);
     newRow.append(RowRead);
-  });
+  }
 
 }
-
-render();
 
 openFormButton.addEventListener('click', function toggle() {
   document.querySelector('.center-form').style.display = 'block';
 });
 
 
-submitbutton.addEventListener("click", addBook());
+
+  
+  
+  
