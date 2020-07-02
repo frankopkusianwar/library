@@ -1,5 +1,6 @@
 const table = document.querySelector('tbody');
 const openFormButton = document.querySelector('#open');
+const submitbutton = document.querySelector('#submitBook');
 
 let myLibrary = [
   {
@@ -26,6 +27,11 @@ let myLibrary = [
     read: 'Completed',
   }
 ];
+
+function addBook() {
+  title = document.getElementById('title').value
+  console.log(title)
+}
 
 function render() {
 
@@ -58,3 +64,6 @@ render();
 openFormButton.addEventListener('click', function toggle() {
   document.querySelector('.center-form').style.display = 'block';
 });
+
+
+submitbutton.addEventListener("click", addBook());
