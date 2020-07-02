@@ -1,7 +1,7 @@
 const table = document.querySelector('tbody');
 const openFormButton = document.querySelector('#open');
 const form = document.querySelector('#form');
-const deleteBookButton = document.querySelector('td button')
+const deleteBookButton = document.querySelector('td button');
 
 let myLibrary = [];
 
@@ -52,21 +52,25 @@ function checked(check) {
 
 form.addEventListener("submit", function(e) {
   e.preventDefault();
-  
-  myLibrary.push(
-    {
-      title: e.target.title.value,
-      author: e.target.author.value,
-      pages: e.target.pages.value,
-      read: checked(e.target.readStatus.checked),
-    }
-  )
-  
-  render();
-  e.target.title.value = '';
-  e.target.author.value = '';
-  deleteBookRow();
-  readBookStatus();
+  if (e.target.title.value.length > 1 && e.target.author.value.length > 1 && e.target.pages.value.length > 1) {
+    myLibrary.push(
+      {
+        title: e.target.title.value,
+        author: e.target.author.value,
+        pages: e.target.pages.value,
+        read: checked(e.target.readStatus.checked),
+      }
+    )
+
+    render();
+    e.target.title.value = '';
+    e.target.author.value = '';
+    deleteBookRow();
+    readBookStatus();
+  }
+  else {
+    alert('Please fill all the fields')
+  }
 });
 
 function deleteBookRow() {
@@ -76,7 +80,7 @@ function deleteBookRow() {
 }
 
 function deleteBook(e) {
-  e.target.parentNode.parentNode.remove()
+  e.target.parentNode.parentNode.remove();
 }
 
 function readBookStatus() {
