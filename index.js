@@ -2,6 +2,7 @@ const table = document.querySelector('tbody');
 const openFormButton = document.querySelector('#open');
 const form = document.querySelector('#form');
 const deleteBookButton = document.querySelector('td button');
+const formToggle = document.querySelector('#center-form')
 
 let myLibrary = [];
 
@@ -41,10 +42,15 @@ function render() {
 
 }
 
-openFormButton.addEventListener('click', function toggle() {
-  document.querySelector('.center-form').style.display = 'block';
-});
+function toggle() {
+  formToggle.classList.toggle("form-toggle");
+};
 
+function openForm() {
+  openFormButton.addEventListener('click', toggle);
+}
+
+openForm();
 
 function checked(check) {
   return check ? 'Completed' : 'Yet To Read';
@@ -65,8 +71,10 @@ form.addEventListener("submit", function(e) {
     render();
     e.target.title.value = '';
     e.target.author.value = '';
+    e.target.pages.value = '';
     deleteBookRow();
     readBookStatus();
+    toggle()
   }
   else {
     alert('Please fill all the fields')
