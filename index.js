@@ -17,16 +17,14 @@ function render() {
     const rowRead = document.createElement('td');
     const rowDelete = document.createElement('td');
     const rowButton = document.createElement('button');
-    rowButton.className = `Delete-${myLibrary.length}`;
+    rowButton.className = "delete";
     const rowReadButton = document.createElement('button');
-    rowReadButton.className = `Read-${myLibrary.length}`;
-
+    rowReadButton.className = "read";
 
     rowIndex.textContent = (index + 1);
     rowTitle.textContent = book.title;
     rowAuthor.textContent = book.author;
     rowPages.textContent = book.pages;
-    // rowRead.textContent = book.read;
     rowButton.textContent = 'Delete';
     rowReadButton.textContent = book.read;
 
@@ -68,10 +66,11 @@ form.addEventListener("submit", function(e) {
   e.target.title.value = '';
   e.target.author.value = '';
   deleteBookRow();
+  readBookStatus();
 });
 
 function deleteBookRow() {
-  document.querySelectorAll('td button').forEach((button) => {
+  document.querySelectorAll('.delete').forEach((button) => {
     button.addEventListener('click', deleteBook)
   })
 }
@@ -80,5 +79,14 @@ function deleteBook(e) {
   e.target.parentNode.parentNode.remove()
 }
 
+function readBookStatus() {
+  document.querySelectorAll('.read').forEach((button) => {
+    button.addEventListener('click', readStatus)
+  })
+}
+
+function readStatus(e) {
+  e.target.textContent === "Complete" ? e.target.textContent = "Yet To Read" : e.target.textContent = "Complete";
+}
   
   
