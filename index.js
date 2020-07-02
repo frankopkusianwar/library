@@ -1,4 +1,5 @@
 const table = document.querySelector('tbody');
+const openFormButton = document.querySelector('#open');
 
 let myLibrary = [
   {
@@ -25,7 +26,6 @@ let myLibrary = [
     read: 'Completed',
   }
 ];
-
 
 function render() {
 
@@ -54,3 +54,7 @@ function render() {
 }
 
 render();
+
+openFormButton.addEventListener('click', function toggle() {
+  document.querySelector('.center-form').style.display = 'block';
+});
