@@ -17,6 +17,7 @@ function render() {
     const rowRead = document.createElement('td');
     const rowDelete = document.createElement('td');
     const rowButton = document.createElement('button')
+    rowButton.className = `Delete-${myLibrary.length}`
 
     rowIndex.textContent = (index + 1);
     rowTitle.textContent = book.title;
@@ -24,7 +25,6 @@ function render() {
     rowPages.textContent = book.pages;
     rowRead.textContent = book.read;
     rowButton.textContent = 'Delete'
-
 
     var newRow = table.appendChild(tableRow);
     newRow.append(rowIndex);
@@ -62,7 +62,18 @@ form.addEventListener("submit", function(e) {
   render();
   e.target.title.value = '';
   e.target.author.value = '';
+  deleteBookRow();
 });
-  
+
+function deleteBookRow() {
+  document.querySelectorAll('td button').forEach((button) => {
+    button.addEventListener('click', deleteBook)
+  })
+}
+
+function deleteBook(e) {
+  e.target.parentNode.parentNode.remove()
+}
+
   
   
