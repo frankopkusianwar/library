@@ -16,21 +16,26 @@ function render() {
     const rowPages = document.createElement('td');
     const rowRead = document.createElement('td');
     const rowDelete = document.createElement('td');
-    const rowButton = document.createElement('button')
-    rowButton.className = `Delete-${myLibrary.length}`
+    const rowButton = document.createElement('button');
+    rowButton.className = `Delete-${myLibrary.length}`;
+    const rowReadButton = document.createElement('button');
+    rowReadButton.className = `Read-${myLibrary.length}`;
+
 
     rowIndex.textContent = (index + 1);
     rowTitle.textContent = book.title;
     rowAuthor.textContent = book.author;
     rowPages.textContent = book.pages;
-    rowRead.textContent = book.read;
-    rowButton.textContent = 'Delete'
+    // rowRead.textContent = book.read;
+    rowButton.textContent = 'Delete';
+    rowReadButton.textContent = book.read;
 
     var newRow = table.appendChild(tableRow);
     newRow.append(rowIndex);
     newRow.append(rowTitle);
     newRow.append(rowAuthor);
     newRow.append(rowPages);
+    rowRead.append(rowReadButton);
     newRow.append(rowRead);
     rowDelete.append(rowButton);
     newRow.append(rowDelete);
