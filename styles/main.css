@@ -1,0 +1,11 @@
+.center-form {
+  width: 35%;
+  margin: auto;
+  display: none !important;
+}
+
+.form-toggle {
+  width: 35%;
+  margin: auto;
+  display: block !important;
+}
