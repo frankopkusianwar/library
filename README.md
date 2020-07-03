@@ -84,6 +84,12 @@ Now you can open `index.html` in your browser to see Library-project up and runn
 - [GitHub](https://github.com/jaspreet-singh-sahota)
 - [Email](jaspreetsinghjassi01@gmail.com)
 
+**Okiror Frank** 
+    
+- [LinkedIn](https://www.linkedin.com/in/frank-okiror/)
+- [GitHub](https://github.com/frankopkusianwar)
+- [Email](okirorfrank3@gmail.com)
+
 ## Show your support
 
 Give a ⭐️ if you like this project!
